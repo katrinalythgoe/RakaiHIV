@@ -520,7 +520,7 @@ def divergenceFromFounders(fastain, patient_id, cutoff):
     else:
         prot = "gp41"
 
-    consensus_seq_file = "/Users/jayna/Dropbox/Latency_in_Rakai_ms/Data_files/fasta_anon/"+p+"_"+prot+"_firsttimepoint_consensus.fasta"
+    consensus_seq_file = "~/consensus_sequences_1st_timepoint/"+p+"_"+prot+"_firsttimepoint_consensus.fasta"
     consensus_seqs = AlignIO.read(consensus_seq_file, 'fasta')
 
     sampleTimes = []
@@ -682,12 +682,6 @@ def divergenceFromFounders(fastain, patient_id, cutoff):
             m_diff = min(list_diff)
             m_diffN = min(list_diffN)
             m_diffS = min(list_diffS)
-
-
-
-            # print("\t", list_diffN, m_diffN, freq, float(m_diffN)/float(seq_length))
-            # print("\t",list_diffS, m_diffS, freq, float(m_diffS)/float(seq_length))
-            # print("\t",list_diff, m_diff, freq, float(m_diff)/float(seq_length))
 
 
             print(each.name, m_diff, m_diffN, m_diffS, freq, m_diff/seq_length)
@@ -1072,13 +1066,13 @@ patients = ["p1","p2","p3","p4","p5","p6","p7","p8","p9","p10",
 # csvfile_gp41.write("Patient,Timepoint(days),mean_diversity_1cp,mean_diversity_2cp,mean_diversity_3cp,mean_diversity\n")
 
 #New divergence analysis for revisions
-fileout_gag_b = "/Users/jayna/Dropbox/Latency_in_Rakai_ms/Revisions/divergence_at_cp_p24_through_time_noBAPS.csv"
+fileout_gag_b = "~/results/divergence_at_cp_p24_through_time_noBAPS.csv"
 csvfile_gag_b = open('%s' % fileout_gag_b, 'w')
 csvfile_gag_b.write("Patient,Timepoint(days),mean_divergence,median_divergence,LQ_divergence,UQ_divergence,mean_nonsyn_divergence,"+
                     "median_nonsyn_divergence,LQ_nonsyn_divergence,UQ_nonsyn_divergence,mean_syn_divergence,median_syn_divergence,"+
                      "LQ_syn_divergence,UQ_syn_divergence\n")
 
-fileout_gp41_b = "/Users/jayna/Dropbox/Latency_in_Rakai_ms/Revisions/divergence_at_cp_gp41_through_time_noBAPS.csv"
+fileout_gp41_b = "~/results/divergence_at_cp_gp41_through_time_noBAPS.csv"
 csvfile_gp41_b = open('%s' % fileout_gp41_b, 'w')
 csvfile_gp41_b.write("Patient,Timepoint(days),mean_divergence,median_divergence,LQ_divergence,UQ_divergence,mean_nonsyn_divergence,"+
                     "median_nonsyn_divergence,LQ_nonsyn_divergence,UQ_nonsyn_divergence,mean_syn_divergence,median_syn_divergence,"+
@@ -1088,7 +1082,7 @@ csvfile_gp41_b.write("Patient,Timepoint(days),mean_divergence,median_divergence,
 
 for p in patients:
 
-    filein = "/Users/jayna/Dropbox/Latency_in_Rakai_ms/Data_files/fasta_anon/"+p+"_gag.fasta"
+    filein = "~/results/"+p+"_gag.fasta"
 
     xx = divergence(filein, p, 0.56/100)
 
@@ -1096,7 +1090,7 @@ csvfile_gag_b.close()
 
 for p in patients:
 
-    filein = "/Users/jayna/Dropbox/Latency_in_Rakai_ms/Data_files/fasta_anon/"+p+"_gp41.fasta"
+    filein = "~/results/"+p+"_gp41.fasta"
 
 
     xx = divergence(filein, p, 0.56/100)
